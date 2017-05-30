@@ -1,2 +1,3 @@
-# crates.io-http-api-reference
+# crates.io HTTP API Reference
+
 HTTP API reference for crates.io
