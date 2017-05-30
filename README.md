@@ -5,6 +5,8 @@ HTTP API reference for [crates.io](https://crates.io)
 
 ## Reference
 
+**Note**: All paths presented here are relative to https://crates.io/api/v1!
+
 - `/crates` [`GET`](#user-content-get-crates)
   - `/new` [`PUT`](#user-content-put-cratesnew)
   - `/:crate_id` [`GET`](#user-content-get-cratescrate_id)
