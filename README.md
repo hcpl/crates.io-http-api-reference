@@ -1,6 +1,4 @@
-# crates.io HTTP API Reference
-
-HTTP API reference for [crates.io](https://crates.io)
+# [crates.io](https://crates.io) HTTP API Reference
 
 
 ## Reference
