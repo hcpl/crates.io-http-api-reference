@@ -78,7 +78,7 @@ Unyank `:crate_id` crate of version `:version`.
 
 #### `GET /crates/:crate_id/downloads`
 
-Get number of total downloads of `:crate_id` crate of version `:version`.
+Get number of total downloads of `:crate_id` crate.
 
 #### `GET /crates/:crate_id/versions`
 
