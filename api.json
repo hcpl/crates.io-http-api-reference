@@ -1,0 +1,291 @@
+[
+    {
+        "name": "crates",
+        "is_parameter": false,
+        "methods": [
+            {
+                "name": "GET",
+                "description": "Get general info about crates."
+            }
+        ],
+        "children": [
+            {
+                "name": "new",
+                "is_parameter": false,
+                "methods": [
+                    {
+                        "name": "PUT",
+                        "description": "Create a new crate."
+                    }
+                ],
+                "children": []
+            },
+            {
+                "name": "crate_id",
+                "is_parameter": true,
+                "methods": [
+                    {
+                        "name": "GET",
+                        "description": "Get general info about `:crate_id` crate."
+                    }
+                ],
+                "children": [
+                    {
+                        "name": "version",
+                        "is_parameter": true,
+                        "methods": [
+                            {
+                                "name": "GET",
+                                "description": "Get info about `:crate_id` crate of version `:version`."
+                            }
+                        ],
+                        "children": [
+                            {
+                                "name": "download",
+                                "is_parameter": false,
+                                "methods": [
+                                    {
+                                        "name": "GET",
+                                        "description": "Download tar-gzipped source code of `:crate_id` crate of version `:version`."
+                                    }
+                                ],
+                                "children": []
+                            },
+                            {
+                                "name": "dependencies",
+                                "is_parameter": false,
+                                "methods": [
+                                    {
+                                        "name": "GET",
+                                        "description": "List dependencies of `:crate_id` crate of version `:version`."
+                                    }
+                                ],
+                                "children": []
+                            },
+                            {
+                                "name": "downloads",
+                                "is_parameter": false,
+                                "methods": [
+                                    {
+                                        "name": "GET",
+                                        "description": "Get number of downloads by date of `:crate_id` crate of version `:version`."
+                                    }
+                                ],
+                                "children": []
+                            },
+                            {
+                                "name": "authors",
+                                "is_parameter": false,
+                                "methods": [
+                                    {
+                                        "name": "GET",
+                                        "description": "List authors of `:crate_id` crate of version `:version`."
+                                    }
+                                ],
+                                "children": []
+                            },
+                            {
+                                "name": "yank",
+                                "is_parameter": false,
+                                "methods": [
+                                    {
+                                        "name": "DELETE",
+                                        "description": "Yank `:crate_id` crate of version `:version`."
+                                    }
+                                ],
+                                "children": []
+                            },
+                            {
+                                "name": "unyank",
+                                "is_parameter": false,
+                                "methods": [
+                                    {
+                                        "name": "PUT",
+                                        "description": "Unyank `:crate_id` crate of version `:version`."
+                                    }
+                                ],
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": "downloads",
+                        "is_parameter": false,
+                        "methods": [
+                            {
+                                "name": "GET",
+                                "description": "Get number of total downloads of `:crate_id` crate."
+                            }
+                        ],
+                        "children": []
+                    },
+                    {
+                        "name": "versions",
+                        "is_parameter": false,
+                        "methods": [
+                            {
+                                "name": "GET",
+                                "description": "List versions of `:crate_id` crate."
+                            }
+                        ],
+                        "children": []
+                    },
+                    {
+                        "name": "follow",
+                        "is_parameter": false,
+                        "methods": [
+                            {
+                                "name": "PUT",
+                                "description": "?"
+                            },
+                            {
+                                "name": "DELETE",
+                                "description": "?"
+                            }
+                        ],
+                        "children": []
+                    },
+                    {
+                        "name": "following",
+                        "is_parameter": false,
+                        "methods": [
+                            {
+                                "name": "GET",
+                                "description": "?"
+                            }
+                        ],
+                        "children": []
+                    },
+                    {
+                        "name": "owners",
+                        "is_parameter": false,
+                        "methods": [
+                            {
+                                "name": "GET",
+                                "description": "List owners of `:crate_id` crate."
+                            },
+                            {
+                                "name": "PUT",
+                                "description": "Add an owner to `:crate_id` crate."
+                            },
+                            {
+                                "name": "DELETE",
+                                "description": "Delete an owner from `:crate_id` crate."
+                            }
+                        ],
+                        "children": []
+                    },
+                    {
+                        "name": "reverse_dependencies",
+                        "is_parameter": false,
+                        "methods": [
+                            {
+                                "name": "GET",
+                                "description": "List reverse dependencies of `:crate_id` crate."
+                            }
+                        ],
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "versions",
+        "is_parameter": false,
+        "methods": [
+            {
+                "name": "GET",
+                "description": "?"
+            }
+        ],
+        "children": [
+            {
+                "name": "version_id",
+                "is_parameter": true,
+                "methods": [
+                    {
+                        "name": "GET",
+                        "description": "?"
+                    }
+                ],
+                "children": []
+            }
+        ]
+    },
+    {
+        "name": "keywords",
+        "is_parameter": false,
+        "methods": [
+            {
+                "name": "GET",
+                "description": "List keywords of crates uploaded to [crates.io](https://crates.io)."
+            }
+        ],
+        "children": [
+            {
+                "name": "keyword_id",
+                "is_parameter": true,
+                "methods": [
+                    {
+                        "name": "GET",
+                        "description": "Get info about the `:keyword_id` keyword."
+                    }
+                ],
+                "children": []
+            }
+        ]
+    },
+    {
+        "name": "categories",
+        "is_parameter": false,
+        "methods": [
+            {
+                "name": "GET",
+                "description": "List categories of crates uploaded to [crates.io](https://crates.io)."
+            }
+        ],
+        "children": [
+            {
+                "name": "category_id",
+                "is_parameter": true,
+                "methods": [
+                    {
+                        "name": "GET",
+                        "description": "Get info about the `:category_id` category."
+                    }
+                ],
+                "children": []
+            }
+        ]
+    },
+    {
+        "name": "category_slugs",
+        "is_parameter": false,
+        "methods": [
+            {
+                "name": "GET",
+                "description": "?"
+            }
+        ],
+        "children": []
+    },
+    {
+        "name": "users",
+        "is_parameter": false,
+        "methods": {},
+        "children": [
+            {
+                "name": "user_id",
+                "is_parameter": true,
+                "methods": [
+                    {
+                        "name": "GET",
+                        "description": "Get info about the `:user_id` user."
+                    }
+                ],
+                "children": []
+            }
+        ]
+    }
+]
