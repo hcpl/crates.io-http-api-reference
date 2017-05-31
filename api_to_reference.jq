@@ -12,20 +12,20 @@ def method_lowercase:
     else ""
     end;
 
-def method(pseudo_path):
-    if length == 0
-    then "(no access)"
-    else [.[] | "[`\(.name)`](#user-content-\(method_lowercase)-\(pseudo_path|join("")))"] | join("/")
-    end;
-
 def to_path_component:
     (if .is_parameter then ":" else "" end) + .name;
+
+def methods(pseudo_path):
+    if length == 0
+    then "(no access)"
+    else map("[`\(.name)`](#user-content-\(method_lowercase)-\(pseudo_path|join("")))") | join("/")
+    end;
 
 def rec(f):
     def r(x; pseudo_path):
         [pseudo_path[], .name] as $pseudo_path |
         reduce range(0; x) as $i
-            ("- `/\(to_path_component)` \(.methods|method($pseudo_path))";
+            ("- `/\(to_path_component)` \(.methods|methods($pseudo_path))";
              "  " + .),
         (f | r(x + 1; $pseudo_path));
     r(0; []);
