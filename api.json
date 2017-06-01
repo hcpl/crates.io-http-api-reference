@@ -14,7 +14,7 @@
                     },
                     "q": {
                         "description": "?",
-                        "valid_values": [],
+                        "valid_values": "?",
                         "fallback": null
                     },
                     "category": {
@@ -114,7 +114,7 @@
                                         "parameters": {
                                             "before_date": {
                                                 "description": "Limit results to downloads before the specified date",
-                                                "valid_values": "Date in format %Y-%m-%d, where %Y — 4 digits of year, %m — month from 1 to 12, %d — day of month from 1 to 31",
+                                                "valid_values": "date in format `%Y-%m-%d`, where `%Y` — 4 digits of year, `%m` — month from 1 to 12, `%d` — day of month from 1 to 31",
                                                 "fallback": null
                                             }
                                         }

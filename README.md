@@ -38,6 +38,30 @@
 
 Get general info about crates.
 
+##### Parameters
+
+- `category` Limit results to crates in this category
+  - valid values: any
+  - no fall back
+- `following` Limit results to crates the requesting user is following
+  - valid values: any
+  - no fall back
+- `keywords` Limit results to crates with this keyword
+  - valid values: any
+  - no fall back
+- `letter` Pattern-based search (in particular, SQL LIKE-based)
+  - valid values: any
+  - no fall back
+- `q` ?
+  - valid values: ?
+  - no fall back
+- `sort` Results sorting method
+  - valid values: `alpha`, `downloads`
+  - falls back to `alpha`
+- `user_id` Limit results to crates of this user
+  - valid values: any
+  - no fall back
+
 #### `PUT /crates/new`
 
 Create a new crate.
@@ -61,6 +85,12 @@ List dependencies of `:crate_id` crate of version `:version`.
 #### `GET /crates/:crate_id/:version/downloads`
 
 Get number of downloads by date of `:crate_id` crate of version `:version`.
+
+##### Parameters
+
+- `before_date` Limit results to downloads before the specified date
+  - valid values: date in format `%Y-%m-%d`, where `%Y` — 4 digits of year, `%m` — month from 1 to 12, `%d` — day of month from 1 to 31
+  - no fall back
 
 #### `GET /crates/:crate_id/:version/authors`
 
@@ -114,6 +144,12 @@ List reverse dependencies of `:crate_id` crate.
 
 ?
 
+##### Parameters
+
+- `ids[]` ?
+  - valid values: ?
+  - no fall back
+
 #### `GET /versions/:version_id`
 
 ?
@@ -122,6 +158,12 @@ List reverse dependencies of `:crate_id` crate.
 
 List keywords of crates uploaded to [crates.io](https://crates.io).
 
+##### Parameters
+
+- `sort` Results sorting method
+  - valid values: `alpha`, `crates`
+  - falls back to `alpha`
+
 #### `GET /keywords/:keyword_id`
 
 Get info about the `:keyword_id` keyword.
@@ -129,6 +171,12 @@ Get info about the `:keyword_id` keyword.
 #### `GET /categories`
 
 List categories of crates uploaded to [crates.io](https://crates.io).
+
+##### Parameters
+
+- `sort` Results sorting method
+  - valid values: `alpha`, `crates`
+  - falls back to `alpha`
 
 #### `GET /categories/:category_id`
 
