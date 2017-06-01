@@ -1,1 +1,2 @@
-- Explain keyword parameters
+- [x] Explain keyword parameters
+- [ ] Add return codes
