@@ -5,7 +5,44 @@
         "methods": [
             {
                 "name": "GET",
-                "description": "Get general info about crates."
+                "description": "Get general info about crates.",
+                "parameters": {
+                    "sort": {
+                        "description": "Results sorting method",
+                        "valid_values": ["alpha", "downloads"],
+                        "fallback": "alpha"
+                    },
+                    "q": {
+                        "description": "?",
+                        "valid_values": [],
+                        "fallback": null
+                    },
+                    "category": {
+                        "description": "Limit results to crates in this category",
+                        "valid_values": true,
+                        "fallback": null
+                    },
+                    "keywords": {
+                        "description": "Limit results to crates with this keyword",
+                        "valid_values": true,
+                        "fallback": null
+                    },
+                    "letter": {
+                        "description": "Pattern-based search (in particular, SQL LIKE-based)",
+                        "valid_values": true,
+                        "fallback": null
+                    },
+                    "user_id": {
+                        "description": "Limit results to crates of this user",
+                        "valid_values": true,
+                        "fallback": null
+                    },
+                    "following": {
+                        "description": "Limit results to crates the requesting user is following",
+                        "valid_values": true,
+                        "fallback": null
+                    }
+                }
             }
         ],
         "children": [
@@ -15,7 +52,8 @@
                 "methods": [
                     {
                         "name": "PUT",
-                        "description": "Create a new crate."
+                        "description": "Create a new crate.",
+                        "parameters": {}
                     }
                 ],
                 "children": []
@@ -26,7 +64,8 @@
                 "methods": [
                     {
                         "name": "GET",
-                        "description": "Get general info about `:crate_id` crate."
+                        "description": "Get general info about `:crate_id` crate.",
+                        "parameters": {}
                     }
                 ],
                 "children": [
@@ -36,7 +75,8 @@
                         "methods": [
                             {
                                 "name": "GET",
-                                "description": "Get info about `:crate_id` crate of version `:version`."
+                                "description": "Get info about `:crate_id` crate of version `:version`.",
+                                "parameters": {}
                             }
                         ],
                         "children": [
@@ -46,7 +86,8 @@
                                 "methods": [
                                     {
                                         "name": "GET",
-                                        "description": "Download tar-gzipped source code of `:crate_id` crate of version `:version`."
+                                        "description": "Download tar-gzipped source code of `:crate_id` crate of version `:version`.",
+                                        "parameters": {}
                                     }
                                 ],
                                 "children": []
@@ -57,7 +98,8 @@
                                 "methods": [
                                     {
                                         "name": "GET",
-                                        "description": "List dependencies of `:crate_id` crate of version `:version`."
+                                        "description": "List dependencies of `:crate_id` crate of version `:version`.",
+                                        "parameters": {}
                                     }
                                 ],
                                 "children": []
@@ -68,7 +110,14 @@
                                 "methods": [
                                     {
                                         "name": "GET",
-                                        "description": "Get number of downloads by date of `:crate_id` crate of version `:version`."
+                                        "description": "Get number of downloads by date of `:crate_id` crate of version `:version`.",
+                                        "parameters": {
+                                            "before_date": {
+                                                "description": "Limit results to downloads before the specified date",
+                                                "valid_values": "Date in format %Y-%m-%d, where %Y — 4 digits of year, %m — month from 1 to 12, %d — day of month from 1 to 31",
+                                                "fallback": null
+                                            }
+                                        }
                                     }
                                 ],
                                 "children": []
@@ -79,7 +128,8 @@
                                 "methods": [
                                     {
                                         "name": "GET",
-                                        "description": "List authors of `:crate_id` crate of version `:version`."
+                                        "description": "List authors of `:crate_id` crate of version `:version`.",
+                                        "parameters": {}
                                     }
                                 ],
                                 "children": []
@@ -90,7 +140,8 @@
                                 "methods": [
                                     {
                                         "name": "DELETE",
-                                        "description": "Yank `:crate_id` crate of version `:version`."
+                                        "description": "Yank `:crate_id` crate of version `:version`.",
+                                        "parameters": {}
                                     }
                                 ],
                                 "children": []
@@ -101,7 +152,8 @@
                                 "methods": [
                                     {
                                         "name": "PUT",
-                                        "description": "Unyank `:crate_id` crate of version `:version`."
+                                        "description": "Unyank `:crate_id` crate of version `:version`.",
+                                        "parameters": {}
                                     }
                                 ],
                                 "children": []
@@ -114,7 +166,8 @@
                         "methods": [
                             {
                                 "name": "GET",
-                                "description": "Get number of total downloads of `:crate_id` crate."
+                                "description": "Get number of total downloads of `:crate_id` crate.",
+                                "parameters": {}
                             }
                         ],
                         "children": []
@@ -125,7 +178,8 @@
                         "methods": [
                             {
                                 "name": "GET",
-                                "description": "List versions of `:crate_id` crate."
+                                "description": "List versions of `:crate_id` crate.",
+                                "parameters": {}
                             }
                         ],
                         "children": []
@@ -136,11 +190,13 @@
                         "methods": [
                             {
                                 "name": "PUT",
-                                "description": "?"
+                                "description": "?",
+                                "parameters": {}
                             },
                             {
                                 "name": "DELETE",
-                                "description": "?"
+                                "description": "?",
+                                "parameters": {}
                             }
                         ],
                         "children": []
@@ -151,7 +207,8 @@
                         "methods": [
                             {
                                 "name": "GET",
-                                "description": "?"
+                                "description": "?",
+                                "parameters": {}
                             }
                         ],
                         "children": []
@@ -162,15 +219,18 @@
                         "methods": [
                             {
                                 "name": "GET",
-                                "description": "List owners of `:crate_id` crate."
+                                "description": "List owners of `:crate_id` crate.",
+                                "parameters": {}
                             },
                             {
                                 "name": "PUT",
-                                "description": "Add an owner to `:crate_id` crate."
+                                "description": "Add an owner to `:crate_id` crate.",
+                                "parameters": {}
                             },
                             {
                                 "name": "DELETE",
-                                "description": "Delete an owner from `:crate_id` crate."
+                                "description": "Delete an owner from `:crate_id` crate.",
+                                "parameters": {}
                             }
                         ],
                         "children": []
@@ -181,7 +241,8 @@
                         "methods": [
                             {
                                 "name": "GET",
-                                "description": "List reverse dependencies of `:crate_id` crate."
+                                "description": "List reverse dependencies of `:crate_id` crate.",
+                                "parameters": {}
                             }
                         ],
                         "children": []
@@ -196,7 +257,14 @@
         "methods": [
             {
                 "name": "GET",
-                "description": "?"
+                "description": "?",
+                "parameters": {
+                    "ids[]": {
+                        "description": "?",
+                        "valid_values": "?",
+                        "fallback": null
+                    }
+                }
             }
         ],
         "children": [
@@ -206,7 +274,8 @@
                 "methods": [
                     {
                         "name": "GET",
-                        "description": "?"
+                        "description": "?",
+                        "parameters": {}
                     }
                 ],
                 "children": []
@@ -219,7 +288,14 @@
         "methods": [
             {
                 "name": "GET",
-                "description": "List keywords of crates uploaded to [crates.io](https://crates.io)."
+                "description": "List keywords of crates uploaded to [crates.io](https://crates.io).",
+                "parameters": {
+                    "sort": {
+                        "description": "Results sorting method",
+                        "valid_values": ["alpha", "crates"],
+                        "fallback": "alpha"
+                    }
+                }
             }
         ],
         "children": [
@@ -229,7 +305,8 @@
                 "methods": [
                     {
                         "name": "GET",
-                        "description": "Get info about the `:keyword_id` keyword."
+                        "description": "Get info about the `:keyword_id` keyword.",
+                        "parameters": {}
                     }
                 ],
                 "children": []
@@ -242,7 +319,14 @@
         "methods": [
             {
                 "name": "GET",
-                "description": "List categories of crates uploaded to [crates.io](https://crates.io)."
+                "description": "List categories of crates uploaded to [crates.io](https://crates.io).",
+                "parameters": {
+                    "sort": {
+                        "description": "Results sorting method",
+                        "valid_values": ["alpha", "crates"],
+                        "fallback": "alpha"
+                    }
+                }
             }
         ],
         "children": [
@@ -252,7 +336,8 @@
                 "methods": [
                     {
                         "name": "GET",
-                        "description": "Get info about the `:category_id` category."
+                        "description": "Get info about the `:category_id` category.",
+                        "parameters": {}
                     }
                 ],
                 "children": []
@@ -265,7 +350,8 @@
         "methods": [
             {
                 "name": "GET",
-                "description": "?"
+                "description": "?",
+                "parameters": {}
             }
         ],
         "children": []
@@ -281,7 +367,8 @@
                 "methods": [
                     {
                         "name": "GET",
-                        "description": "Get info about the `:user_id` user."
+                        "description": "Get info about the `:user_id` user.",
+                        "parameters": {}
                     }
                 ],
                 "children": []
