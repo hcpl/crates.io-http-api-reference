@@ -13,7 +13,7 @@ def method_lowercase:
     end;
 
 def to_path_component:
-    (if .is_parameter then ":" else "" end) + .name;
+    if .is_parameter then "{\(.name)}" else .name end;
 
 def methods(pseudo_path):
     if length == 0

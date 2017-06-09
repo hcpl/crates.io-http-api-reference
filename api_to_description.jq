@@ -6,7 +6,7 @@ def join(str):
 
 
 def to_path_component:
-    (if .is_parameter then ":" else "" end) + .name;
+    if .is_parameter then "{\(.name)}" else .name end;
 
 def valid_values:
     if type == "array" then map("`\(.)`")|join(", ")

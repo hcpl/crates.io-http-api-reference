@@ -7,8 +7,8 @@
 
 - `/crates` [`GET`](#user-content-get-crates)
   - `/new` [`PUT`](#user-content-put-cratesnew)
-  - `/:crate_id` [`GET`](#user-content-get-cratescrate_id)
-    - `/:version` [`GET`](#user-content-get-cratescrate_idversion)
+  - `/{crate_id}` [`GET`](#user-content-get-cratescrate_id)
+    - `/{version}` [`GET`](#user-content-get-cratescrate_idversion)
       - `/download` [`GET`](#user-content-get-cratescrate_idversiondownload)
       - `/dependencies` [`GET`](#user-content-get-cratescrate_idversiondependencies)
       - `/downloads` [`GET`](#user-content-get-cratescrate_idversiondownloads)
@@ -22,14 +22,14 @@
     - `/owners` [`GET`](#user-content-get-cratescrate_idowners)/[`PUT`](#user-content-put-cratescrate_idowners)/[`DELETE`](#user-content-delete-cratescrate_idowners)
     - `/reverse_dependencies` [`GET`](#user-content-get-cratescrate_idreverse_dependencies)
 - `/versions` [`GET`](#user-content-get-versions)
-  - `/:version_id` [`GET`](#user-content-get-versionsversion_id)
+  - `/{version_id}` [`GET`](#user-content-get-versionsversion_id)
 - `/keywords` [`GET`](#user-content-get-keywords)
-  - `/:keyword_id` [`GET`](#user-content-get-keywordskeyword_id)
+  - `/{keyword_id}` [`GET`](#user-content-get-keywordskeyword_id)
 - `/categories` [`GET`](#user-content-get-categories)
-  - `/:category_id` [`GET`](#user-content-get-categoriescategory_id)
+  - `/{category_id}` [`GET`](#user-content-get-categoriescategory_id)
 - `/category_slugs` [`GET`](#user-content-get-category_slugs)
 - `/users` (no access)
-  - `/:user_id` [`GET`](#user-content-get-usersuser_id)
+  - `/{user_id}` [`GET`](#user-content-get-usersuser_id)
 
 
 ## Description
@@ -66,23 +66,23 @@ Get general info about crates.
 
 Create a new crate.
 
-#### `GET /crates/:crate_id`
+#### `GET /crates/{crate_id}`
 
 Get general info about `:crate_id` crate.
 
-#### `GET /crates/:crate_id/:version`
+#### `GET /crates/{crate_id}/{version}`
 
 Get info about `:crate_id` crate of version `:version`.
 
-#### `GET /crates/:crate_id/:version/download`
+#### `GET /crates/{crate_id}/{version}/download`
 
 Download tar-gzipped source code of `:crate_id` crate of version `:version`.
 
-#### `GET /crates/:crate_id/:version/dependencies`
+#### `GET /crates/{crate_id}/{version}/dependencies`
 
 List dependencies of `:crate_id` crate of version `:version`.
 
-#### `GET /crates/:crate_id/:version/downloads`
+#### `GET /crates/{crate_id}/{version}/downloads`
 
 Get number of downloads by date of `:crate_id` crate of version `:version`.
 
@@ -92,51 +92,51 @@ Get number of downloads by date of `:crate_id` crate of version `:version`.
   - valid values: date in format `%Y-%m-%d`, where `%Y` — 4 digits of year, `%m` — month from 1 to 12, `%d` — day of month from 1 to 31
   - no fall back
 
-#### `GET /crates/:crate_id/:version/authors`
+#### `GET /crates/{crate_id}/{version}/authors`
 
 List authors of `:crate_id` crate of version `:version`.
 
-#### `DELETE /crates/:crate_id/:version/yank`
+#### `DELETE /crates/{crate_id}/{version}/yank`
 
 Yank `:crate_id` crate of version `:version`.
 
-#### `PUT /crates/:crate_id/:version/unyank`
+#### `PUT /crates/{crate_id}/{version}/unyank`
 
 Unyank `:crate_id` crate of version `:version`.
 
-#### `GET /crates/:crate_id/downloads`
+#### `GET /crates/{crate_id}/downloads`
 
 Get number of total downloads of `:crate_id` crate.
 
-#### `GET /crates/:crate_id/versions`
+#### `GET /crates/{crate_id}/versions`
 
 List versions of `:crate_id` crate.
 
-#### `PUT /crates/:crate_id/follow`
+#### `PUT /crates/{crate_id}/follow`
 
 ?
 
-#### `DELETE /crates/:crate_id/follow`
+#### `DELETE /crates/{crate_id}/follow`
 
 ?
 
-#### `GET /crates/:crate_id/following`
+#### `GET /crates/{crate_id}/following`
 
 ?
 
-#### `GET /crates/:crate_id/owners`
+#### `GET /crates/{crate_id}/owners`
 
 List owners of `:crate_id` crate.
 
-#### `PUT /crates/:crate_id/owners`
+#### `PUT /crates/{crate_id}/owners`
 
 Add an owner to `:crate_id` crate.
 
-#### `DELETE /crates/:crate_id/owners`
+#### `DELETE /crates/{crate_id}/owners`
 
 Delete an owner from `:crate_id` crate.
 
-#### `GET /crates/:crate_id/reverse_dependencies`
+#### `GET /crates/{crate_id}/reverse_dependencies`
 
 List reverse dependencies of `:crate_id` crate.
 
@@ -150,7 +150,7 @@ List reverse dependencies of `:crate_id` crate.
   - valid values: ?
   - no fall back
 
-#### `GET /versions/:version_id`
+#### `GET /versions/{version_id}`
 
 ?
 
@@ -164,7 +164,7 @@ List keywords of crates uploaded to [crates.io](https://crates.io).
   - valid values: `alpha`, `crates`
   - falls back to `alpha`
 
-#### `GET /keywords/:keyword_id`
+#### `GET /keywords/{keyword_id}`
 
 Get info about the `:keyword_id` keyword.
 
@@ -178,7 +178,7 @@ List categories of crates uploaded to [crates.io](https://crates.io).
   - valid values: `alpha`, `crates`
   - falls back to `alpha`
 
-#### `GET /categories/:category_id`
+#### `GET /categories/{category_id}`
 
 Get info about the `:category_id` category.
 
@@ -186,6 +186,6 @@ Get info about the `:category_id` category.
 
 ?
 
-#### `GET /users/:user_id`
+#### `GET /users/{user_id}`
 
 Get info about the `:user_id` user.
